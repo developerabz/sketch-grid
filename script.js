@@ -3,7 +3,7 @@ const sketchpad = document.querySelector(".sketchpad");
 let widthSquares;
 let lengthSquares;
 
-
+const firstgrid = document.createElement("div");
 
 function generate() {
     
@@ -15,27 +15,43 @@ function generate() {
     } else {
         for (i=0; i < widthSquares * lengthSquares; i++) {
             const firstgrid = document.createElement("div");
-            firstgrid.classList.toggle("firstgrid");
+            firstgrid.classList.add("firstgrid");
             sketchpad.appendChild(firstgrid);
         }
     }
 }
 
 
-const button = document.querySelector("button");
+const generatebutton = document.querySelector(".generate");
 
-button.addEventListener("click", () => {
+generatebutton.addEventListener("click", () => {
     widthSquares = prompt("How many squares wide? (MAX Squares 99)", "16");
     lengthSquares = prompt("How many squares long? (MAX Squares 99)", "16");
     generate();
-})
 
-
-const gridboxes = document.querySelectorAll("div.firstgrid");
-
-gridboxes.forEach ((firstgrid) => {
+    
+    const gridboxes = document.querySelectorAll(".firstgrid");
+    gridboxes.forEach ((firstgrid) => {
 
     firstgrid.addEventListener("mouseover", () => {
         firstgrid.classList.add("firstgridhover");
     });
 });
+});
+
+const clearbutton = document.querySelector(".clear");
+
+function clear() {
+    
+}
+
+
+
+clearbutton.addEventListener("click", () => {
+    const gridboxes = document.querySelectorAll(".firstgrid");
+    gridboxes.forEach((firstgrid) => {
+        firstgrid.classList.remove("firstgrid");
+    });
+});
+
+
