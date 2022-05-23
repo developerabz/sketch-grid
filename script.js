@@ -1,7 +1,8 @@
 const sketchpad = document.querySelector(".sketchpad");
 
-
-for (i=0; i < 256; i++) {
+let widthSquares = prompt("How many squares wide?", "16");
+let lengthSquares = prompt("How many squares long?", "16")
+for (i=0; i < widthSquares * lengthSquares; i++) {
     const firstgrid = document.createElement("div");
     firstgrid.classList.toggle("firstgrid");
     sketchpad.appendChild(firstgrid);
